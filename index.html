@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--    Author: Quinn Allan Siebers
+        Date: 3-1-2020
+        This website is a business site for one of my photographer friends.
+-->
+    <meta charset="UTF-8">
+    <title>Lydia Smith</title>
+
+<!--    CSS links  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/lydiaSmithPhotography.css">
+    <link rel="stylesheet" href="css/lightbox.css">
+    <link rel="stylesheet" href="css/jarallax.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+
+<!--    Scripts   -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script async src="js/lydiaSmithPhotography.js"></script>
+    <script async src="js/lightbox-plus-jquery.js"></script>
+    <script async src="js/jarallax.min.js"></script>
+
+</head>
+<body>
+
+<!--Title page-->
+<div data-jarallax data-speed="0.2" class="jarallax">
+    <img class="jarallax-img" src="pics/title.jpg" alt="">
+    <div class="demo-table">
+        <div class="title-text">
+            <br><br><br><br><br><br><br><br><br>
+            <h1>LYDIA SMITH</h1>
+            <h5>P   H   O   T   O   G   R   A   P   H   E   R</h5>
+
+<!--        Linking to different parts of the site-->
+            <div id="nav">
+            <p><a href="#photo-gallery">Portfolio</a> <a href="#about-me">About</a> <a href="#contact-me">Contact</a></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<!--First parallax picture-->
+<div data-jarallax data-speed="0.2" class="jarallax">
+    <img class="jarallax-img" src="pics/parallax3.jpg" alt="">
+</div>
+
+
+<!--Photo Gallery Section-->
+<!--Using a .js and .css library created by Lokesh Dhakar-->
+<div class="gallery">
+    <br>
+    <h2><a name="photo-gallery"></a>Photo Gallery</h2> <br><br>
+
+  <a href="pics/ginny.jpg" data-lightbox="mygallery" data-title="Ginny"><img src="pics/ginny-small.jpg" alt=""></a>
+  <a href="pics/quinn.jpg" data-lightbox="mygallery" data-title="Quinn"><img src="pics/quinn-small.jpg" alt=""></a>
+  <a href="pics/purple.jpg" data-lightbox="mygallery" data-title=""><img src="pics/purple-small.jpg" alt=""></a>
+  <a href="pics/Collarbone.jpg" data-lightbox="mygallery" data-title=""><img src="pics/Collarbone-small.jpg" alt=""></a>
+  <a href="pics/lemon.jpg" data-lightbox="mygallery" data-title=""><img src="pics/lemon-small.jpg" alt=""></a>
+  <a href="pics/monkey.jpg" data-lightbox="mygallery" data-title=""><img src="pics/monkey-small.jpg" alt=""></a>
+  <a href="pics/taylor.jpg" data-lightbox="mygallery" data-title=""><img src="pics/taylor-small.jpg" alt=""></a>
+  <a href="pics/rain.jpg" data-lightbox="mygallery" data-title=""><img src="pics/rain-small.jpg" alt=""></a>
+  <a href="pics/nature.jpg" data-lightbox="mygallery" data-title=""><img src="pics/nature-small.jpg" alt=""></a>
+  <a href="pics/brushes.jpg" data-lightbox="mygallery" data-title=""><img src="pics/brushes-small.jpg" alt=""></a>
+
+
+</div>
+<!--end of gallery section-->
+
+
+<!--Second parallax picture-->
+<div data-jarallax data-speed="0.2" class="jarallax">
+    <img class="jarallax-img" src="pics/parallax2.jpg" alt="">
+</div>
+
+<!--About Me section-->
+    <div class="container">
+        <div class="row">
+            <div class="col-12-md">
+                <div class="media">
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1"> <a name="about-me"> </a>About Me</h5>
+                        <br><br>
+                        I have always loved photography. I remember paging through large photo books looking at all the fantastic images. Capturing these incredible places, people and moments. Pulling me into each photographic story.
+
+                        Currently I am a photographer and photo assistant in the Minneapolis area. I spend my time roller skating, hiking, collaborating with other artists and spending time with friends and family.
+                    </div>
+                    <img id="lydia-picture" src="pics/lydia.png" alt="Lydia Smith" >
+                </div>
+            </div>
+        </div>
+    </div>
+<!--End of section-->
+
+<!--third parallax picture-->
+<div data-jarallax data-speed="0.2" class="jarallax">
+    <img class="jarallax-img" src="pics/parallax1.jpg" alt="">
+</div>
+
+<!--Contact form section-->
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+
+
+            <div id="contact">
+
+                <h1 class="text-center"><a name="contact-me"></a>Contact Me!</h1>
+                <!--responsive alerts to show th user if their form entry is valid or not-->
+                <div class="alert alert-danger" v-show="errors.length > 0">
+                    <li v-for="error in errors">{{error}}</li>
+                </div>
+                <div class="alert alert-success"v-show="successes.length > 0">
+                    <li v-for="success in successes">{{success}}</li>
+                </div>
+
+                <!--Form starts here-->
+                <form>
+                    <div class="form-group">
+                        <label for="formName">Name</label>
+                        <input type="name" class="form-control" id="formName" v-model="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" class="form-control" id="email" v-model.trim="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" class="form-control" id="subject" v-model.trim="subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="textArea">Message</label>
+                        <textarea class="form-control" id="textArea" rows="3" v-model="textArea"></textarea>
+                    </div>
+
+                    <button class="btn btn-primary" v-on:click.prevent="submit">Submit</button>
+
+                </form>
+                <!--end of form section-->
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+<!--End of contact form section-->
+
+<!--Fourth and final parallax picture-->
+<div data-jarallax data-speed="0.2" class="jarallax">
+    <img class="jarallax-img" src="pics/parallax4.jpg" alt="">
+</div>
+
+</body>
+</html>
